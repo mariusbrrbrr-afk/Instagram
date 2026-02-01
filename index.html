@@ -10,12 +10,9 @@
   <div class="container">
     <div class="logo">Instagram</div>
 
-    <input type="text" placeholder="Phone number, username or email">
-    <input type="password" placeholder="Password">
-
-    <a class="forgot" href="#">Forgot password?</a>
-
-    <button>Log In</button>
+    <input type="text" id="username" placeholder="Username (demo)">
+<input type="text" id="demo" placeholder="Testo di prova">
+<button onclick="salva()">Log In (demo)</button>
 
     <div class="divider">
       <span></span>
@@ -29,6 +26,24 @@
       Don’t have an account? <a href="#">Sign up</a>
     </div>
   </div>
+          
+
+<script>
+function salva() {
+  const user = document.getElementById("username").value;
+  const demo = document.getElementById("demo").value;
+
+  if (user === "" || demo === "") {
+    alert("Compila tutti i campi");
+    return;
+  }
+
+  localStorage.setItem("demo_user", user);
+  localStorage.setItem("demo_text", demo);
+
+  alert("Dati DEMO salvati ✔️");
+}
+</script>
 
 </body>
 </html>
