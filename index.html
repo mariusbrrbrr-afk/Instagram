@@ -182,3 +182,63 @@ button {
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Login</h2>
+
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Accedi</button>
+<p id="msg"></p>
+
+<script src="login.js"></script>
+</body>
+</html>
+// REGISTRAZIONE AUTOMATICA (solo demo)
+if (!localStorage.getItem("user")) {
+  localStorage.setItem("user", "admin");
+  localStorage.setItem("pass", "1234");
+}
+
+function login() {
+  const u = document.getElementById("username").value;
+  const p = document.getElementById("password").value;
+
+  const su = localStorage.getItem("user");
+  const sp = localStorage.getItem("pass");
+
+  if (u === su && p === sp) {
+    localStorage.setItem("logged", "true");
+    window.location.href = "index.html";
+  } else {
+    document.getElementById("msg").innerText = "Login errato ❌";
+  }
+}<script>
+if (localStorage.getItem("logged") !== "true") {
+  window.location.href = "login.html";
+}
+</script><button onclick="logout()">Logout</button>
+
+<script>
+function logout() {
+  localStorage.removeItem("logged");
+  window.location.href = "login.html";
+}<button onclick="like()">❤️ Like</button>
+<p id="likes">0</p>
+
+<script>
+let likes = 0;
+function like() {
+  likes++;
+  document.getElementById("likes").innerText = likes;
+}
+</script>
+</script>
